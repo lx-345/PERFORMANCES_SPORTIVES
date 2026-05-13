@@ -1,28 +1,63 @@
-```{mermaid}
-flowchart LR
-    Strava((🏃 API Strava))
-    
-    subgraph Onyxia [☁️ ONYXIA Cloud]
-        S3[(activites_brutes.csv)]
-    end
-    
-    subgraph Local [💻 ORDINATEUR LOCAL]
-        Env[⚙️ Fichier .env]
-        Script1[🐍 strava_to_onyxia.py]
-        Script2[🐍 onyxia_to_main.py]
-        Data[(📁 Dossier src/data/)]
-    end
-
-    Strava -->|Extraction| Script1
-    Env -.->|Fournit les clés| Script1
-    Script1 -->|Envoi sécurisé| S3
-    
-    S3 -->|Téléchargement| Script2
-    Env -.->|Fournit les clés S3| Script2
-    Script2 -->|Sauvegarde locale| Data
-    
-    style Strava fill:#fc4c02,color:#fff
-    style S3 fill:#E3F2FD
-```
-
-
+<mxfile host="65bd71144e">
+    <diagram id="caYsB7J_k0o-juo-unNT" name="Page-1">
+        <mxGraphModel dx="2088" dy="1243" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <UserObject label="&lt;b data-index-in-node=&quot;134&quot; data-path-to-node=&quot;1&quot;&gt;&lt;font style=&quot;font-size: 48px;&quot;&gt;Pipeline ETL&lt;/font&gt;&lt;/b&gt;" link="&#xa;src/api_strava/strava_to_onyxia.py&#xa;&#xa;" id="3">
+                    <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                        <mxGeometry x="-60" y="-480" width="1030" height="150" as="geometry"/>
+                    </mxCell>
+                </UserObject>
+                <mxCell id="25" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=-15;exitPerimeter=0;" edge="1" parent="1" source="5" target="20">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Stockage S3 (Object Storage)&lt;div&gt;Onyxia : data.csv&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="-190" width="540" height="390" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="8" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value=".ENV&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="10" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;" edge="1" parent="1" source="9" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="strava_to_onyxia.py" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="-80" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="10" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="get_right.py" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="-210" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="20" target="26">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="strava_to_main.py" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="350" width="120" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="21" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Strava API&lt;div&gt;data.json&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+                    <mxGeometry x="-230" y="-190" width="300" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="La Zone de Staging" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="950" y="520" width="340" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="340" y="-170" width="20" height="23.46" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="541.47" y="-40" width="17.05" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="shape=image;html=1;verticalLabelPosition=bottom;verticalAlign=top;imageAspect=1;aspect=fixed;image=img/clipart/Gear_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="830" y="390" width="20" height="23.46" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
