@@ -1,0 +1,28 @@
+```{mermaid}
+flowchart LR
+    Strava((🏃 API Strava))
+    
+    subgraph Onyxia [☁️ ONYXIA Cloud]
+        S3[(activites_brutes.csv)]
+    end
+    
+    subgraph Local [💻 ORDINATEUR LOCAL]
+        Env[⚙️ Fichier .env]
+        Script1[🐍 strava_to_onyxia.py]
+        Script2[🐍 onyxia_to_main.py]
+        Data[(📁 Dossier src/data/)]
+    end
+
+    Strava -->|Extraction| Script1
+    Env -.->|Fournit les clés| Script1
+    Script1 -->|Envoi sécurisé| S3
+    
+    S3 -->|Téléchargement| Script2
+    Env -.->|Fournit les clés S3| Script2
+    Script2 -->|Sauvegarde locale| Data
+    
+    style Strava fill:#fc4c02,color:#fff
+    style S3 fill:#E3F2FD
+```
+
+
