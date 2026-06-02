@@ -1,14 +1,14 @@
 import os
+import time
 import requests
 import pandas as pd
 import s3fs
-import time
 from pathlib import Path
 from dotenv import load_dotenv
 
-# Configuration de l'environnement
-env_path = Path(__file__).parent / ".env"
-load_dotenv(dotenv_path=env_path)
+# Remonte à la racine du projet
+ROOT_DIR = Path(__file__).resolve().parents[3]
+load_dotenv(dotenv_path=ROOT_DIR / ".env")
 
 def get_new_access_token():
     """Échange le refresh_token contre un access_token tout neuf"""
@@ -41,14 +41,11 @@ def fetch_all_activities(token):
         
         data = res.json()
         
-        # Si la page est vide, on a fini !
         if not data:
             break
             
         all_activities.extend(data)
         page += 1
-        
-        # Petite pause pour respecter les limites de l'API (Rate Limiting)
         time.sleep(0.5)
 
     print(f"✅ Terminé ! {len(all_activities)} activités récupérées au total.")
@@ -70,7 +67,8 @@ def upload_to_onyxia(df):
         df.to_csv(f, index=False)
     print(f"🚀 Succès ! Fichier complet envoyé sur S3.")
 
-if __name__ == "__main__":
+def extract_strava_pipeline():
+    """Fonction principale d'extraction"""
     try:
         access_token = get_new_access_token()
         df_final = fetch_all_activities(access_token)
@@ -81,4 +79,7 @@ if __name__ == "__main__":
             print("⚠️ Aucune activité trouvée sur ton compte.")
             
     except Exception as e:
-        print(f"\n🛑 Erreur lors du pipeline : {e}")
+        print(f"\n🛑 Erreur lors de l'extraction : {e}")
+
+if __name__ == "__main__":
+    extract_strava_pipeline()
