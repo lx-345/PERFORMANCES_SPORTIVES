@@ -2,7 +2,6 @@ import os
 import time
 import requests
 import pandas as pd
-import s3fs
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -51,21 +50,19 @@ def fetch_all_activities(token):
     print(f"✅ Terminé ! {len(all_activities)} activités récupérées au total.")
     return pd.DataFrame(all_activities)
 
-def upload_to_onyxia(df):
-    """Envoie le CSV sur MinIO (Onyxia)"""
-    print("☁️ Envoi vers Onyxia (Zone Bronze)...")
-    fs = s3fs.S3FileSystem(
-        client_kwargs={'endpoint_url': f"https://{os.getenv('AWS_S3_ENDPOINT')}"},
-        key=os.getenv('AWS_ACCESS_KEY_ID'),
-        secret=os.getenv('AWS_SECRET_ACCESS_KEY'),
-        token=os.getenv('AWS_SESSION_TOKEN')
-    )
-
-    target_path = "paleo/donnees_strava/activites_brutes.csv"
-
-    with fs.open(target_path, 'w', encoding='utf-8') as f:
-        df.to_csv(f, index=False)
-    print(f"🚀 Succès ! Fichier complet envoyé sur S3.")
+def save_to_local_data(df):
+    """Sauvegarde le DataFrame en local dans le dossier data/"""
+    print("💾 Sauvegarde en local dans le dossier data/...")
+    
+    # Ciblage du dossier data à la racine du projet
+    dossier_data = ROOT_DIR / "data"
+    dossier_data.mkdir(parents=True, exist_ok=True)
+    
+    chemin_cible = dossier_data / "activites_brutes.csv"
+    
+    # Sauvegarde au format CSV
+    df.to_csv(chemin_cible, index=False, encoding='utf-8')
+    print(f"🚀 Succès ! Fichier brut enregistré sous : {chemin_cible}")
 
 def extract_strava_pipeline():
     """Fonction principale d'extraction"""
@@ -74,7 +71,7 @@ def extract_strava_pipeline():
         df_final = fetch_all_activities(access_token)
         
         if not df_final.empty:
-            upload_to_onyxia(df_final)
+            save_to_local_data(df_final)
         else:
             print("⚠️ Aucune activité trouvée sur ton compte.")
             

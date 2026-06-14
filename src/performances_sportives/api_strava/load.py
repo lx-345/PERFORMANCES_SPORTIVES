@@ -7,19 +7,22 @@ from dotenv import load_dotenv
 ROOT_DIR = Path(__file__).resolve().parents[3]
 load_dotenv(dotenv_path=ROOT_DIR / ".env")
 
-# Cible le nouveau dossier data/raw à la racine
-DATA_RAW_DIR = ROOT_DIR / "data" / "raw"
-DATA_RAW_DIR.mkdir(parents=True, exist_ok=True)
+# Définition des chemins du fichier (Source locale et Destination S3)
+chemin_local = ROOT_DIR / "data" / "activites_clean.csv"
+chemin_s3 = "paleo/donnees_strava/activites_clean.csv"
 
-# Définition des chemins du fichier (Source et Destination)
-chemin_s3 = "paleo/donnees_strava/activites_brutes.csv"
-chemin_local = DATA_RAW_DIR / "activites_brutes.csv"
-
-def download_from_onyxia():
-    """Télécharge le fichier brut depuis Onyxia vers data/raw/"""
+def upload_clean_to_onyxia():
+    """Envoie le fichier activites_clean.csv local vers Onyxia"""
     print("☁️ Connexion au stockage Onyxia...")
     
+    # Sécurité : On vérifie que le fichier a bien été créé par clean.py avant d'essayer de l'envoyer
+    if not chemin_local.exists():
+        print(f"❌ Erreur : Le fichier local {chemin_local} n'existe pas.")
+        print("💡 Astuce : Lance d'abord le nettoyage (clean.py) pour générer ce fichier.")
+        return
+
     try:
+        # Initialisation du client S3 (MinIO)
         fs = s3fs.S3FileSystem(
             client_kwargs={'endpoint_url': f"https://{os.getenv('AWS_S3_ENDPOINT')}"},
             key=os.getenv('AWS_ACCESS_KEY_ID'),
@@ -27,15 +30,16 @@ def download_from_onyxia():
             token=os.getenv('AWS_SESSION_TOKEN')
         )
         
-        print(f"📥 Téléchargement en cours depuis : {chemin_s3}")
+        print(f"📤 Envoi en cours vers S3 : {chemin_s3}...")
         
-        fs.get(chemin_s3, str(chemin_local))
+        # 'put' prend le fichier physique de ton ordinateur et l'envoie sur le bucket
+        fs.put(str(chemin_local), chemin_s3)
         
-        print(f"✅ Succès ! Le fichier CSV a été enregistré dans : {chemin_local}")
+        print(f"🚀 Succès ! Le fichier clean a été envoyé sur Onyxia avec succès.")
         
     except Exception as e:
-        print(f"❌ Erreur lors du téléchargement : {e}")
-        print("💡 Astuce : Vérifie que ton AWS_SESSION_TOKEN dans le .env n'a pas expiré.")
+        print(f"❌ Erreur lors de l'envoi : {e}")
+        print("💡 Astuce : Vérifie que ton AWS_SESSION_TOKEN dans le fichier .env n'a pas expiré.")
 
 if __name__ == "__main__":
-    download_from_onyxia()
+    upload_clean_to_onyxia()
