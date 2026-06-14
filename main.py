@@ -26,6 +26,9 @@ try:
 except ImportError:
     pass
 
+# Import ciblé sur le dossier 'reporting' à la racine du projet
+from reporting.send import upload_dashboard_via_browser
+
 def run_full_pipeline():
     try:
         extract_strava_pipeline()
@@ -46,6 +49,12 @@ def run_full_pipeline():
         executer_generation_dashboard()
     except Exception:
         pass
+
+    print("🚀 Lancement du module de téléversement SharePoint (Playwright)...")
+    try:
+        upload_dashboard_via_browser()
+    except Exception as e:
+        print(f"❌ Échec lors de l'exécution du script de dépôt : {e}")
 
 if __name__ == "__main__":
     run_full_pipeline()
