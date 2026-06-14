@@ -101,7 +101,7 @@ def nettoyer_donnees_strava(nom_fichier_entree="activites_brutes.csv", nom_fichi
     
     df_export.to_csv(chemin_clean, index=False, encoding='utf-8')
     
-    print(f"✅ Fichier propre généré avec succès ! \n💾 Enregistré sous : {chemin_clean}")
+   
     
     return df_export
 

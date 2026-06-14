@@ -11,7 +11,7 @@ load_dotenv(dotenv_path=ROOT_DIR / ".env")
 
 def get_new_access_token():
     """Échange le refresh_token contre un access_token tout neuf"""
-    print("🔄 Rafraîchissement du jeton Strava...")
+    
     payload = {
         'client_id': os.getenv('STRAVA_CLIENT_ID'),
         'client_secret': os.getenv('STRAVA_CLIENT_SECRET'),
@@ -33,7 +33,7 @@ def fetch_all_activities(token):
     per_page = 200 # Maximum autorisé par Strava
 
     while True:
-        print(f"   📥 Lecture de la page {page}...")
+        
         params = {'per_page': per_page, 'page': page}
         res = requests.get(url, headers=headers, params=params)
         res.raise_for_status()
@@ -47,12 +47,12 @@ def fetch_all_activities(token):
         page += 1
         time.sleep(0.5)
 
-    print(f"✅ Terminé ! {len(all_activities)} activités récupérées au total.")
+    
     return pd.DataFrame(all_activities)
 
 def save_to_local_data(df):
     """Sauvegarde le DataFrame en local dans le dossier data/"""
-    print("💾 Sauvegarde en local dans le dossier data/...")
+   
     
     # Ciblage du dossier data à la racine du projet
     dossier_data = ROOT_DIR / "data"
@@ -62,7 +62,7 @@ def save_to_local_data(df):
     
     # Sauvegarde au format CSV
     df.to_csv(chemin_cible, index=False, encoding='utf-8')
-    print(f"🚀 Succès ! Fichier brut enregistré sous : {chemin_cible}")
+    
 
 def extract_strava_pipeline():
     """Fonction principale d'extraction"""
@@ -75,8 +75,8 @@ def extract_strava_pipeline():
         else:
             print("⚠️ Aucune activité trouvée sur ton compte.")
             
-    except Exception as e:
-        print(f"\n🛑 Erreur lors de l'extraction : {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"\n Erreur lors de l'extraction : {e}")
 
 if __name__ == "__main__":
     extract_strava_pipeline()
