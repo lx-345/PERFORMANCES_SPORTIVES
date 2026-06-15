@@ -26,7 +26,7 @@ La construction d'un modèle calculatoire fiable repose sur la qualité et la co
 L'objectif est d'intégrer les paramètres environnementaux du sportif afin de stabiliser la charge d'entraînement moyenne tout en compensant les variations ponctuelles. En l'état, cette solution ne prend pas en compte la périodisation des phases d'entraînement et manque d'éléments prédictifs pour dépasser le stade de l'analyse descriptive.
 
 
-Un exemple aboutit de cette catégorie de modèle :
+Un exemple aboutit de cette catégorie de modèle : https://joseph-mestrallet.com/
 
 
 
