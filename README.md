@@ -31,18 +31,18 @@ Un exemple aboutit de cette catégorie de modèle : https://joseph-mestrallet.co
 
 
 /performances_sportives
-├── data/                       
-│   ├── activite_brut.csv       
-│   └── activite_clean.csv      
-├── reporting/                  
-│   └── Dashboard_Pro.xlsx 
-    |___ Send.py     
-├── src/                        
-│   |__ clean 
-│   ├── data_pipeline.py        
-│   ├── reporting    
-│             
-└── main.py                     
+├── data/
+│   ├── activite_brut.csv
+│   └── activite_clean.csv
+├── reporting/
+│   └── Dashboard_Pro.xlsx
+├── src/
+│   ├── clean/
+│   ├── dashboard/
+│   │   ├── builder.py
+│   │   └── send.py
+│   └── data_pipeline.py
+└── main.py                   
 
 
 
