@@ -42,7 +42,8 @@ Un exemple aboutit de cette catégorie de modèle : https://joseph-mestrallet.co
 │   │   ├── builder.py
 │   │   └── send.py
 │   └── data_pipeline.py
-└── main.py                   
+└── main.py
+                  
 
 
 
