@@ -1,3 +1,7 @@
-2026/06/15-01:35:05.854 f08 Reusing MANIFEST C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\Local Storage\leveldb/MANIFEST-000001
-2026/06/15-01:35:05.861 f08 Recovering log #7
-2026/06/15-01:35:05.866 f08 Reusing old log C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\Local Storage\leveldb/000007.log 
+2026/06/16-09:49:44.796 56d4 Reusing MANIFEST C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\Local Storage\leveldb/MANIFEST-000001
+2026/06/16-09:49:44.947 56d4 Recovering log #7
+2026/06/16-09:49:44.948 56d4 Level-0 table #9: started
+2026/06/16-09:49:44.981 56d4 Level-0 table #9: 27171 bytes OK
+2026/06/16-09:49:45.016 56d4 Recovering log #9
+2026/06/16-09:49:45.024 56d4 Reusing old log C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\Local Storage\leveldb/000009.log 
+2026/06/16-09:49:45.048 56d4 Delete type=0 #7

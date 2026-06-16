@@ -1,10 +1,47 @@
-2026/06/15-01:35:10.294 64b4 Reusing MANIFEST C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\IndexedDB\https_cnam-my.sharepoint.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/06/15-01:35:10.300 64b4 Recovering log #15
-2026/06/15-01:35:10.378 64b4 Reusing old log C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\IndexedDB\https_cnam-my.sharepoint.com_0.indexeddb.leveldb/000015.log 
-2026/06/15-01:35:14.037 5da0 Level-0 table #21: started
-2026/06/15-01:35:14.175 5da0 Level-0 table #21: 1322200 bytes OK
-2026/06/15-01:35:14.180 5da0 Delete type=0 #15
-2026/06/15-01:35:14.233 550c Compacting 1@1 + 1@2 files
-2026/06/15-01:35:14.318 550c Generated table #22@1: 4425 keys, 1969946 bytes
-2026/06/15-01:35:14.318 550c Compacted 1@1 + 1@2 files => 1969946 bytes
-2026/06/15-01:35:14.324 550c compacted to: files[ 0 0 3 0 0 0 0 ]
+2026/06/16-09:49:45.549 3f5c Reusing MANIFEST C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\IndexedDB\https_cnam-my.sharepoint.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/06/16-09:49:45.561 3f5c Recovering log #20
+2026/06/16-09:49:45.584 3f5c Level-0 table #24: started
+2026/06/16-09:49:45.615 3f5c Level-0 table #24: 1144935 bytes OK
+2026/06/16-09:49:45.616 3f5c Recovering log #31
+2026/06/16-09:49:45.637 3f5c Reusing old log C:\Users\leopa\OneDrive\Documents\ETUDE\année universitaire 2025-2027\Master CNAM\Excel\Projet_entraînement\performance_sportive\reporting\browser_session\Default\IndexedDB\https_cnam-my.sharepoint.com_0.indexeddb.leveldb/000031.log 
+2026/06/16-09:49:45.641 3f5c Delete type=2 #17
+2026/06/16-09:49:45.642 3f5c Delete type=0 #20
+2026/06/16-09:49:45.642 3f5c Delete type=2 #21
+2026/06/16-09:49:45.642 3f5c Delete type=2 #30
+2026/06/16-09:49:45.642 3f5c Delete type=2 #33
+2026/06/16-09:49:45.642 3f5c Delete type=2 #34
+2026/06/16-09:49:46.443 a94 Moved #24 to level-1 1144935 bytes OK: files[ 0 1 3 0 0 0 0 ]
+2026/06/16-09:49:46.903 3f5c Compacting 1@1 + 1@2 files
+2026/06/16-09:49:46.944 3f5c Generated table #32@1: 4616 keys, 1967136 bytes
+2026/06/16-09:49:46.944 3f5c Compacted 1@1 + 1@2 files => 1967136 bytes
+2026/06/16-09:49:46.947 3f5c compacted to: files[ 0 0 3 0 0 0 0 ]
+2026/06/16-09:49:48.592 3f5c Level-0 table #34: started
+2026/06/16-09:49:48.620 3f5c Level-0 table #34: 2581728 bytes OK
+2026/06/16-09:49:48.622 3f5c Delete type=2 #22
+2026/06/16-09:49:48.622 3f5c Delete type=2 #24
+2026/06/16-09:49:48.622 3f5c Delete type=0 #31
+2026/06/16-09:49:48.665 3f5c Compacting 1@1 + 1@2 files
+2026/06/16-09:49:48.888 3f5c Generated table #35@1: 4935 keys, 2194387 bytes
+2026/06/16-09:49:48.894 3f5c Generated table #36@1: 243 keys, 229555 bytes
+2026/06/16-09:49:48.894 3f5c Compacted 1@1 + 1@2 files => 2423942 bytes
+2026/06/16-09:49:48.894 3f5c compacted to: files[ 0 0 4 0 0 0 0 ]
+2026/06/16-09:49:49.857 4248 Level-0 table #38: started
+2026/06/16-09:49:49.904 4248 Level-0 table #38: 1467269 bytes OK
+2026/06/16-09:49:49.907 4248 Delete type=2 #32
+2026/06/16-09:49:49.907 4248 Delete type=0 #33
+2026/06/16-09:49:49.907 4248 Delete type=2 #34
+2026/06/16-09:49:54.041 3f5c Compacting 1@1 + 1@2 files
+2026/06/16-09:49:54.159 3f5c Generated table #39@1: 5199 keys, 2207208 bytes
+2026/06/16-09:49:54.183 3f5c Generated table #40@1: 18 keys, 125983 bytes
+2026/06/16-09:49:54.183 3f5c Compacted 1@1 + 1@2 files => 2333191 bytes
+2026/06/16-09:49:54.186 3f5c compacted to: files[ 0 0 5 0 0 0 0 ]
+2026/06/16-09:49:54.678 3f5c Level-0 table #42: started
+2026/06/16-09:49:54.734 3f5c Level-0 table #42: 1922697 bytes OK
+2026/06/16-09:49:54.738 3f5c Delete type=2 #35
+2026/06/16-09:49:54.738 3f5c Delete type=0 #37
+2026/06/16-09:49:54.738 3f5c Delete type=2 #38
+2026/06/16-09:49:54.760 3f5c Compacting 1@1 + 1@2 files
+2026/06/16-09:49:54.832 3f5c Generated table #43@1: 5425 keys, 2158503 bytes
+2026/06/16-09:49:54.892 3f5c Generated table #44@1: 1986 keys, 897134 bytes
+2026/06/16-09:49:54.892 3f5c Compacted 1@1 + 1@2 files => 3055637 bytes
+2026/06/16-09:49:54.898 3f5c compacted to: files[ 0 0 6 0 0 0 0 ]

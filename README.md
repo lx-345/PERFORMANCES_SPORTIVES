@@ -35,11 +35,12 @@ Un exemple aboutit de cette catégorie de modèle : https://joseph-mestrallet.co
 │   ├── activite_brut.csv       
 │   └── activite_clean.csv      
 ├── reporting/                  
-│   └── Dashboard_Pro.xlsx      
+│   └── Dashboard_Pro.xlsx 
+    |___ Send.py     
 ├── src/                        
-│   ├── __init__.py
+│   |__ clean 
 │   ├── data_pipeline.py        
-│   ├── reporting    # Les briques "Lego" réutilisables
+│   ├── reporting    
 │             
 └── main.py                     
 

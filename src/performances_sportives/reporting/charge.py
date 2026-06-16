@@ -71,7 +71,7 @@ def integrer_graphiques_charge(wb, ws_charge, max_data_row):
     if chart_line.series: 
         chart_line.series[0].graphicalProperties.line.solidFill = "C0392B"
         chart_line.series[0].smooth = True 
-    ws_charge.add_chart(chart_line, "K37")
+    ws_charge.add_chart(chart_line, "K39")
 
 def construire_page_charge(wb, max_data_row, len_y, len_t, len_d):
     """Construit la page complète de Suivi de Charge en stricte conformité avec ton tableau à 7 colonnes"""
